@@ -1,0 +1,8 @@
+[{
+  "username": "admin",
+  "password": "admin",
+  "roles": ["ADMIN"],
+  "covea_att": {
+    "name": "administrator"
+  }
+}]

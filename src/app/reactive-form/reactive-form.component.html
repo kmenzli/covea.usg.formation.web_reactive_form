@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Angular Reactive Form</h3>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="form">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input class="form-control" formControlName="name" type="text">
+                            <span *ngIf="(registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.required"
+                                  class="text-danger">
+                                Name is required
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input class="form-control" formControlName="email" type="text">
+                            <span *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required"
+                                  class="text-danger">
+                                Email is required
+                            </span>
+                            <span *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.email"
+                                  class="text-danger">
+                                Enter a valid email address
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input class="form-control" formControlName="username" type="text">
+                            <span *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.required"
+                                  class="text-danger">
+                                User Name is required
+                            </span>
+                            <span *ngIf="registerFormControl.username.touched && registerFormControl.username.errors?.userNameNotAvailable"
+                                  class="text-danger">
+                                User Name is not available
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input class="form-control" formControlName="password" type="password">
+                            <span *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required"
+                                  class="text-danger">
+                                Password is required
+                            </span>
+                            <span *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.invalidPassword"
+                                  class="text-danger">
+                                Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                                letter and 1 number
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input class="form-control" formControlName="confirmPassword" type="password">
+                            <span *ngIf="(registerFormControl.confirmPassword.touched || submitted)&& registerFormControl.confirmPassword.errors?.required"
+                                  class="text-danger">
+                                Confirm Password is required
+                            </span>
+                            <span *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.passwordMismatch"
+                                  class="text-danger">
+                                Passwords doesnot match
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success" type="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
